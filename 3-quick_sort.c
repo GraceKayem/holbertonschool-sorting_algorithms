@@ -4,7 +4,7 @@
 
 /**
  * swap_ints - Swaps two integers in an array and prints the array
- *             only if the values are different
+ *	       only if the values are different
  * @a: Pointer to first integer
  * @b: Pointer to second integer
  * @array: The array being sorted
@@ -39,23 +39,24 @@ size_t lomuto_partition(int *array, size_t low, size_t high, size_t size)
 
 	for (j = low; j < high; j++)
 	{
-		if (array[j] < pivot)
+	if (array[j] < pivot)
+	{
+		if (i != j)
 		{
-			if (i != j)
-			{
-				swap_ints(&array[i], &array[j]);
-				print_array(array, size);
-			}
-			i++;
+			swap_ints(&array[i], &array[j], array, size);
 		}
+	i++;
 	}
+	}
+
 	if (i != high)
 	{
-		swap_ints(&array[i], &array[high]);
-		print_array(array, size);
+		swap_ints(&array[i], &array[high], array, size);
 	}
+
 	return (i);
 }
+
 
 /**
  * quick_sort_recursive - Recursively sorts array using Lomuto scheme
