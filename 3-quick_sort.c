@@ -3,17 +3,24 @@
 #include "sort.h"
 
 /**
- * swap_ints - Swaps two integers in an array
+ * swap_ints - Swaps two integers in an array and prints the array
+ *             only if the values are different
  * @a: Pointer to first integer
  * @b: Pointer to second integer
+ * @array: The array being sorted
+ * @size: Size of the array
  */
-void swap_ints(int *a, int *b)
+void swap_ints(int *a, int *b, int *array, size_t size)
 {
-	int temp;
+	if (*a != *b)
+	{
+		int temp;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+		temp = *a;
+		*a = *b;
+		*b = temp;
+		print_array(array, size);
+	}
 }
 
 /**
